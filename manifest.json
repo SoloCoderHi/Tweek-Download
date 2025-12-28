@@ -1,0 +1,53 @@
+{
+   "manifest_version": 3,
+   "name": "Tweek Download - X Media Saver",
+   "version": "1.0.0",
+   "description": "Download images and videos from X (Twitter) with a single click. Supports regular tweets, quoted tweets, and multi-media posts.",
+   "author": "Tweek Team",
+   "homepage_url": "https://github.com/tweek-download",
+   "background": {
+      "service_worker": "background.js"
+   },
+   "content_scripts": [
+      {
+         "css": [
+            "content.css"
+         ],
+         "js": [
+            "highestquality.js"
+         ],
+         "matches": [
+            "https://x.com/*",
+            "https://twitter.com/*",
+            "https://mobile.x.com/*",
+            "https://mobile.twitter.com/*"
+         ]
+      }
+   ],
+   "host_permissions": [
+      "https://x.com/*",
+      "https://twitter.com/*",
+      "https://pbs.twimg.com/*",
+      "https://video.twimg.com/*"
+   ],
+   "permissions": [
+      "downloads"
+   ],
+   "icons": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+   },
+   "web_accessible_resources": [
+      {
+         "matches": [
+            "https://x.com/*",
+            "https://twitter.com/*"
+         ],
+         "resources": [
+            "content.js"
+         ]
+      }
+   ]
+}
